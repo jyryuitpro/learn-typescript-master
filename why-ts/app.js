@@ -1,5 +1,5 @@
 // api url
-var url = 'https://jsonplaceholder.typicode.com/users/1';
+var url = 'https://jsonplaceholder.typicode.com/users';
 
 // dom
 var username = document.querySelector('#username');
@@ -10,16 +10,21 @@ var address = document.querySelector('#address');
 var user = {};
 
 function startApp() {
-  axios
-    .get(url)
-    .then(function (response) {
-      console.log(response);
-      user = response.data;
-      // TODO: 이름, 이메일, 주소 표시하기
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    axios
+        .get(url)
+        .then(function (response) {
+            // console.log(response);
+            user = response.data;
+            // TODO: 이름, 이메일, 주소 표시하기
+            console.log(user);
+            username.innerText = user[0].name;
+            email.innerText = user[0].email;
+            // TypeError: Cannot read properties of undefined (reading 'street')
+            address.innerText = user[0].addres.street;
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
 }
 
 startApp();
