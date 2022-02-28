@@ -1,4 +1,12 @@
-// ES2015 (ES6)
+// ES2015 (ES6) 이전: 생성자 함수
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var capt = new Person('캡틴', 100);
+
+// ES2015 (ES6): 기존 __proto__기반의 언어 특성은 변화하지 않음
 class Person {
     // 클래스 로직
     constructor(name, age) {
