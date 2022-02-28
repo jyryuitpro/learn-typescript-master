@@ -97,14 +97,22 @@ class AddressBook {
     this.contacts.push(contact);
   }
 
-  displayListByName() {
+  displayListByName(): string[] {
     return this.contacts.map(contact => contact.name);
   }
 
-  displayListByAddress() {
+  displayListByAddress(): string[] {
     return this.contacts.map(contact => contact.address);
   }
   /* ------------------------------------------------ */
 }
+
+let heroes = [
+  { name: 'Tony', age: 30 },
+  { name: 'Captain', age: 100 },
+];
+heroes.map(function (hero) {
+  return hero.name;
+}); // ['Tony', 'Captain']
 
 new AddressBook();
