@@ -17,3 +17,6 @@ function add(): number {
 function sum(a: number, b: number): number {
     return a + b;
 }
+sum(10, 20);
+// TS2554: Expected 2 arguments, but got 4.
+sum(10, 20, 30, 40);
