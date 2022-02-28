@@ -24,15 +24,28 @@
 //     return num;
 // }
 
-function logText(text: string | number) {
+// function logText(text: string | number) {
+//     console.log(text);
+//     return text;
+// }
+
+// const a: string | number
+// const a = logText('a');
+// TS2339: Property 'split' does not exist on type 'string | number'.   Property 'split' does not exist on type 'number'.
+// a.split('')
+// logText(10);
+// const num = logNumber(10);
+// logText(true);
+
+// 제네릭의 장점과 타입 추론에서의 이점
+function logText<T>(text: T): T {
     console.log(text);
     return text;
 }
 
-// const a: string | number
-const a = logText('a');
-// TS2339: Property 'split' does not exist on type 'string | number'.   Property 'split' does not exist on type 'number'.
-a.split('')
-logText(10);
-// const num = logNumber(10);
-// logText(true);
+const str = logText<string>('abc');
+str.split('');
+const login = logText<boolean>(true);
+
+// logText('a');
+// logText(10);
