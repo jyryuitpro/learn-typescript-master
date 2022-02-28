@@ -39,6 +39,9 @@ function askSomeone(someone: Developer | Person) {
     // someone.age;
 }
 
+askSomeone({ name: '디벨로퍼', skill: '웹개발' });
+askSomeone({ name: '캡틴', age: 100 });
+
 // 인터섹션 타입 소개
 var seho: string | number | boolean;
 // var capt: never
@@ -49,3 +52,11 @@ function askSomeone2(someone: Developer & Person) {
     someone.skill;
     someone.age;
 }
+
+// TS2345: Argument of type '{ name: string; skill: string; }' is not assignable to parameter of type 'Developer & Person'.
+// Property 'age' is missing in type '{ name: string; skill: string; }' but required in type 'Person'.
+// askSomeone2({ name: '디벨로퍼', skill: '웹개발' });
+askSomeone2({ name: '디벨로퍼', skill: '웹개발', age: 34 });
+// askSomeone2({ name: '캡틴', age: 100 });
+
+
