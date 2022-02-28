@@ -21,3 +21,20 @@ function logMessage(value: string | number) {
 }
 logMessage('hello');
 logMessage(100);
+
+interface Developer {
+    name: string;
+    skill: string;
+}
+
+interface Person {
+    name: string;
+    age: number;
+}
+
+// 유니온 타입의 특징: 공통 속성까지만 접근할 수 있습니다.
+function askSomeone(someone: Developer | Person) {
+    someone.name;
+    // someone.skill;
+    // someone.age;
+}
