@@ -40,4 +40,27 @@ interface StringArray {
 }
 
 var arr: StringArray = ['a','b','c'];
-arr[0] = 10;
+// arr[0] = 10;
+
+// 인터페이스 딕셔너리 패턴
+interface StringRegexDictionary {
+    [key: string]: RegExp
+}
+
+var obj: StringRegexDictionary = {
+    // sth: /abc/,
+    // TS2322: Type 'string' is not assignable to type 'RegExp'.
+    // cssFile: 'css'
+    cssFile: /\.css$/,
+    jsFile: /\.js$/,
+};
+
+// obj.sth
+
+// TS2322: Type '"a"' is not assignable to type 'RegExp'.
+// obj['cssFile'] = 'a';
+
+// 타입 추론
+Object.keys(obj).forEach(function (value) {
+
+})
