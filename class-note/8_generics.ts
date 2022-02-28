@@ -89,3 +89,19 @@ function logTextLength<T extends LengthType>(text: T): T {
     return text;
 }
 logTextLength('a');
+logTextLength(10);
+logTextLength({ leng: 10 });
+
+interface ShoppingItem {
+    name: string;
+    price: number;
+    stock: number;
+}
+
+// keyof로 제네릭의 타입 제한하기
+function getShopingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
+    return itemOption
+}
+// getShopingItemOption(10);
+// getShopingItemOption<string>('a');
+getShopingItemOption('name');
