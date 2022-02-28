@@ -38,3 +38,14 @@ function askSomeone(someone: Developer | Person) {
     // someone.skill;
     // someone.age;
 }
+
+// 인터섹션 타입 소개
+var seho: string | number | boolean;
+// var capt: never
+var capt: string & number & boolean;
+
+function askSomeone2(someone: Developer & Person) {
+    someone.name;
+    someone.skill;
+    someone.age;
+}
