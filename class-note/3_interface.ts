@@ -64,3 +64,22 @@ var obj: StringRegexDictionary = {
 Object.keys(obj).forEach(function (value) {
 
 })
+
+// 인터페이스 확장
+interface Person {
+    name: string;
+    age: number;
+}
+
+interface Developer extends Person {
+    // name: string;
+    // age: number;
+    language: string;
+}
+
+// TS2739: Type '{}' is missing the following properties from type 'Developer': language, name, age
+var captain: Developer = {
+    age: 100,
+    name: '캡틴',
+    language: 'ts'
+};
