@@ -1,9 +1,25 @@
+// 타입 별칭
+// type Todo = {
+//   id: number;
+//   title: string;
+//   done: boolean;
+// };
+
+// 인터페이스
+interface Todo {
+  id: number;
+  title: string;
+  done: boolean;
+}
+
 // let todoItems: object[];
-let todoItems: { id: number; title: string; done: boolean }[];
+// let todoItems: { id: number; title: string; done: boolean }[];
+let todoItems: Todo[];
 
 // api
 // function fetchTodoItems(): object[] {
-function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
+// function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
+function fetchTodoItems(): Todo[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -19,7 +35,8 @@ function fetchTodos(): object[] {
 }
 
 // function addTodo(todo: object): void {
-function addTodo(todo: { id: number; title: string; done: boolean }): void {
+// function addTodo(todo: { id: number; title: string; done: boolean }): void {
+function addTodo(todo: Todo): void {
   // TS2345: Argument of type 'object' is not assignable to parameter of type '{ id: number; title: string; done: boolean; }'.
   todoItems.push(todo);
 }
@@ -31,7 +48,8 @@ function deleteTodo(index: number): void {
 // function completeTodo(index: number, todo: object): void {
 function completeTodo(
   index: number,
-  todo: { id: number; title: string; done: boolean }
+  // todo: { id: number; title: string; done: boolean }
+  todo: Todo
 ): void {
   // TS2339: Property 'done' does not exist on type 'object'.
   todo.done = true;
