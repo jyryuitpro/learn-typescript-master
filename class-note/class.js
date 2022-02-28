@@ -26,3 +26,13 @@ admin.age;
 admin;
 admin.role = 'admin';
 
+// Built-in Javascript API 또는 Javascript Native API
+var obj = { a: 10};
+obj.toString();
+Object.keys(obj);
+obj.hasOwnProperty('a');
+obj;
+
+var user ={ name: 'capt', age: 100 };
+var arr = [];
+arr;
