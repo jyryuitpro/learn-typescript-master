@@ -35,3 +35,6 @@ var detailedItem: DetailedDropdown<string> = {
     tag: 'a'
 }
 
+// Best Common Type (Union Type으로 묶는다)
+var arr = [1, 2, true, true, 'a'];
+
