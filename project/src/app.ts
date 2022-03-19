@@ -7,8 +7,9 @@ function getUnixTimestamp(date: Date) {
 }
 
 // DOM
+var a: Element | HTMLElement | HTMLParagraphElement
 const confirmedTotal = $('.confirmed-total');
-const deathsTotal = $('.deaths');
+const deathsTotal: HTMLParagraphElement = $('.deaths');
 const recoveredTotal = $('.recovered');
 const lastUpdatedTime = $('.last-updated-time');
 const rankList = $('.rank-list');
