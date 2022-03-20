@@ -187,7 +187,18 @@ function setRecoveredList(data: CountrySummaryResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    recoveredList.appendChild(li);
+    // if (!recoveredList) {
+    //   return;
+    // }
+    // recoveredList.appendChild(li);
+    // 옵셔널 체이닝 오퍼레이터(optional chaining operator)
+    recoveredList?.appendChild(li);
+
+    // if (recoveredList === null || recoveredList === undefined) {
+    //   return;
+    // } else {
+    //   recoveredList.appendChild(li);
+    // }
   });
 }
 
