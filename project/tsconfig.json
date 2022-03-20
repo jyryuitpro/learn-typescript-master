@@ -7,6 +7,7 @@
     "lib": ["ES2015", "DOM", "DOM.Iterable"],
     "noImplicitAny": true,
     "typeRoots": ["./node_modules/@types"],
+    "strict": true,
   },
   "include": ["./src/**/*"],
   "exclude": [
