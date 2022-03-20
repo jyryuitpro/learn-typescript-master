@@ -153,7 +153,11 @@ function setDeathsList(data: CountrySummaryResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    deathsList.appendChild(li);
+    // if (!deathsList) {
+    //   return;
+    // }
+    // const a = document.querySelector('.ccc')
+    deathsList!.appendChild(li);
   });
 }
 
