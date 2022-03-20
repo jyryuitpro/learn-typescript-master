@@ -2,7 +2,7 @@
 // import 변수명 from '라이브러리 이름';
 // 변수, 함수 임포트 문법
 // import {} from '파일 상태 경로';
-import axios from 'axios';
+import axios, {AxiosResponse} from 'axios';
 import * as Chart from 'chart.js';
 
 // utils
@@ -44,8 +44,16 @@ function createSpinnerElement(id: string) {
 let isDeathLoading = false;
 let isRecoveredLoading = false;
 
+interface CovidSummaryResponse {
+  Countries: any[];
+  Date: string;
+  Global: any;
+  ID: string;
+  Message: string;
+}
+
 // api
-function fetchCovidSummary() {
+function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
