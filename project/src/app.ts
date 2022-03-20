@@ -7,7 +7,7 @@ function getUnixTimestamp(date: Date) {
 }
 
 // DOM
-let a: Element | HTMLElement | HTMLParagraphElement;
+// let a: Element | HTMLElement | HTMLParagraphElement;
 const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
 const deathsTotal = $('.deaths') as HTMLParagraphElement;
 const recoveredTotal = $('.recovered') as HTMLParagraphElement;
