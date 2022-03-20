@@ -3,7 +3,7 @@
 // 변수, 함수 임포트 문법
 // import {} from '파일 상태 경로';
 import axios, { AxiosResponse } from 'axios';
-import * as Chart from 'chart.js';
+import { Chart } from 'chart.js';
 // 타입 모듈
 import {
   CountrySummaryResponse,
@@ -195,8 +195,11 @@ async function setupData() {
   setLastUpdatedTimestamp(data);
 }
 
-function renderChart(data: any, labels: any) {
-  const ctx = $('#lineChart').getContext('2d');
+function renderChart(data: number[], labels: string[]) {
+  const lineChart = $('#lineChart') as HTMLCanvasElement;
+  const ctx = lineChart.getContext('2d');
+  // const ctx = $('#lineChart').getContext('2d');
+  // const ctx = ($('#lineChart') as HTMLCanvasElement).getContext('2d');
   Chart.defaults.color = '#f5eaea';
   Chart.defaults.font.family = 'Exo 2';
   new Chart(ctx, {
