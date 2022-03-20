@@ -3,7 +3,7 @@
 // 변수, 함수 임포트 문법
 // import {} from '파일 상태 경로';
 import axios from 'axios';
-
+import Chart from 'chart.js';
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
