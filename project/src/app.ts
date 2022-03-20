@@ -9,6 +9,7 @@ import {
   CountrySummaryResponse,
   CovidSummaryResponse,
   Country,
+  CountrySummaryInfo,
 } from './covid/index';
 
 // utils
@@ -121,15 +122,16 @@ async function handleListClick(event: MouseEvent) {
   isDeathLoading = false;
 }
 
-function setDeathsList(data: any) {
+function setDeathsList(data: CountrySummaryResponse) {
   const sorted = data.sort(
-    (a: any, b: any) => getUnixTimestamp(b.Date) - getUnixTimestamp(a.Date)
+    (a: CountrySummaryInfo, b: CountrySummaryInfo) =>
+        getUnixTimestamp(b.Date) - getUnixTimestamp(a.Date)
   );
-  sorted.forEach((value: any) => {
+  sorted.forEach((value: CountrySummaryInfo) => {
     const li = document.createElement('li');
     li.setAttribute('class', 'list-item-b flex align-center');
     const span = document.createElement('span');
-    span.textContent = value.Cases;
+    span.textContent = value.Cases.toString();
     span.setAttribute('class', 'deaths');
     const p = document.createElement('p');
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
