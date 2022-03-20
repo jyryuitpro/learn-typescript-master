@@ -1,3 +1,8 @@
+// 라이브러리 코딩
+// import 변수명 from '라이브러리 이름';
+// 변수, 함수 임포트 문법
+// import {} from '파일 상태 경로';
+
 // utils
 function $(selector: string) {
   return document.querySelector(selector);
