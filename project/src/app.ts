@@ -2,10 +2,10 @@
 // import 변수명 from '라이브러리 이름';
 // 변수, 함수 임포트 문법
 // import {} from '파일 상태 경로';
-import axios, {AxiosResponse} from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import * as Chart from 'chart.js';
 // 타입 모듈
-import { CovidSummaryResponse } from './covid/index';
+import { CountrySummaryResponse, CovidSummaryResponse } from './covid/index';
 
 // utils
 function $(selector: string) {
@@ -58,7 +58,9 @@ enum CovidStatus {
   Deaths = 'deaths',
 }
 
-function fetchCountryInfo(countryCode: string, status: CovidStatus) {
+function fetchCountryInfo(
+    countryCode: string, status: CovidStatus
+): Promise<AxiosResponse<CountrySummaryResponse>> {
   // status params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
@@ -93,7 +95,10 @@ async function handleListClick(event: any) {
   clearRecoveredList();
   startLoadingAnimation();
   isDeathLoading = true;
-  const { data: deathResponse } = await fetchCountryInfo(selectedId, CovidStatus.Deaths);
+  const { data: deathResponse } = await fetchCountryInfo(
+    selectedId,
+    CovidStatus.Deaths,
+  );
   const { data: recoveredResponse } = await fetchCountryInfo(
     selectedId,
     CovidStatus.Recovered,
