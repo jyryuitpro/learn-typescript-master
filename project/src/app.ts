@@ -2,6 +2,7 @@
 // import 변수명 from '라이브러리 이름';
 // 변수, 함수 임포트 문법
 // import {} from '파일 상태 경로';
+import axios from 'axios';
 
 // utils
 function $(selector: string) {
@@ -51,7 +52,7 @@ function fetchCovidSummary() {
 enum CovidStatus {
   Confirmed = 'confirmed',
   Recovered = 'recovered',
-  Deaths = 'deaths'
+  Deaths = 'deaths',
 }
 
 function fetchCountryInfo(countryCode: string, status: CovidStatus) {
