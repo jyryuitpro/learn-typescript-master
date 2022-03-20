@@ -4,6 +4,8 @@
 // import {} from '파일 상태 경로';
 import axios, {AxiosResponse} from 'axios';
 import * as Chart from 'chart.js';
+// 타입 모듈
+import { CovidSummaryResponse } from './covid/index';
 
 // utils
 function $(selector: string) {
@@ -43,14 +45,6 @@ function createSpinnerElement(id: string) {
 // state
 let isDeathLoading = false;
 let isRecoveredLoading = false;
-
-interface CovidSummaryResponse {
-  Countries: any[];
-  Date: string;
-  Global: any;
-  ID: string;
-  Message: string;
-}
 
 // api
 function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
